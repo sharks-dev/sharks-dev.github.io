@@ -1,40 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="robots" content="noindex, nofollow" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ash Sharkey</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        #tab1:checked~.tab-content#content1,
+        #tab2:checked~.tab-content#content2,
+        #tab3:checked~.tab-content#content3,
+        #tab4:checked~.tab-content#content4 {
+            display: block;
+        }
+
+        a:hover,
+        input:not(:checked)+label:hover {
+            position: relative;
+            top: -1px;
+            left: -1px
+        }
+
+        a:active,
+        label:active {
+            background: #f84;
+            color: #fff;
+            position: relative;
+            top: 1px;
+            left: 1px
+        }
+
+        label {
+            text-align: center;
+            padding: 5px 10px;
+            margin-right: -5px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #ececec;
+            cursor: pointer;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-right: 1px solid grey;
+        }
+
+        .tab-content {
+            margin-top: 4px;
+            padding: 15px;
+            font-size: 14px;
+            color: #000;
+            line-height: 1.5;
+            background-color: #fff;
+            overflow-y: auto;
+            display: none;
+        }
+
+        input {
+            display: none;
+        }
+
+        .window {
+            width: 95%;
+            max-width: 600px;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #ececec;
+            position: relative;
+            margin-block: 20px;
+        }
+
+        .window-header {
+            background-image: linear-gradient(#05206C, #A3CBF8);
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 1px 1px #000;
+            border-bottom: 2px solid #000;
+        }
+
+        body {
+            font-family: Tahoma, Verdana, sans-serif;
+            background-color: #c0c0c0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .centerImg {
+            display: block;
+            margin-inline: auto;
+        }
+
+        .window-header {
+            position: sticky;
+            z-index: 1;
+            top: 0px;
+        }
+
+        input:checked+label {
+            background-color: #fff;
+        }
+    </style>
 </head>
+
 <body>
     <div class="window">
-        <div class="sticky-header">
-            <div class="window-header">Ash's homepage<span style="float:right;">(c) 2024 Ash Sharkey</span></div>
-            <div class="tabs">
-                <a href="index.html"><div class="tab active">Home</div></a>
-                <a href="sys.html"><div class="tab">System</div></a>
-                <a href="car.html"><div class="tab">Cars</div></a>
-                <a href="aca.html"><div class="tab">Academia</div></a>
+        <div class="window-header">Ash's homepage<span style="float:right;">(c) 2024 Ash Sharkey</span></div>
+
+        <div style="background-color: #ddd;">
+            <input type="radio" id="tab1" name="tab-group" checked>
+            <label for="tab1">Home</label>
+
+            <input type="radio" id="tab2" name="tab-group">
+            <label for="tab2">System</label>
+
+            <input type="radio" id="tab3" name="tab-group">
+            <label for="tab3">Cars</label>
+
+            <input type="radio" id="tab4" name="tab-group">
+            <label for="tab4">Academia</label>
+
+            <div id="content1" class="tab-content">
+                <h3>What's here?</h3>
+                <p>Some useless information, some pictures of my hobbies and some links to other things I've done.</p>
+                <h3>Who are you?</h3>
+                <table cellpadding=0 cellspacing=0>
+                    <td>
+                        My name is Ash, I'm a amateur developer turned car-enthusiast turned grease-monkey turned
+                        Mechanical Engineer.
+                        I'm based in the eastern half of Australia, and that's about as specific as I'd like to be.
+                    </td>
+                    <td>
+                        <img style="margin-left: 10px;" src="sha.webp" height="64px">
+                    </td>
+                </table>
+                <h3>How can I contact you?</h3>
+                <p>I'm not putting my primary email address on the internet for the world to see, but if you send a
+                    message to the address below I will see it in due time.</p>
+                <img src="eml.webp" style="height:1em">
             </div>
-        </div>
-        <div class="window-content">
-            <h3>What's here?</h3>
-            <p>Some useless information, some pictures of my hobbies and some links to other things I've done.</p>
-            <h3>Who are you?</h3>
-            <table cellpadding=0 cellspacing=0>
-                <td>
-                    My name is Ash, I'm a amateur developer turned car-enthusiast turned grease-monkey turned Mechanical Engineer. 
-                    I'm based in the eastern half of Australia, and that's about as specific as I'd like to be.
-                </td>
-                <td>
-                    <img style="margin-left: 10px;" src="sha.webp">
-                </td>
-            </table>
-            <h3>How can I contact you?</h3>
-            <p>I'm not putting my primary email address on the internet for the world to see, but if you send a message to the address below I will see it in due time.</p>
-            <img src="eml.webp" style="height:1em">
+            <div id="content2" class="tab-content">
+                <h3>Hardware & Software</h3>
+                <p>
+                    My daily driver is a <b>Lenovo ThinkPad X230T running Coreboot and Debian</b>. Despite being 12
+                    years old now, it is the machine that got me all the way through university,
+                    and I'm continuing to use it now. Realistically, while I am impressed with Apple's ARM chipsets of
+                    late, I think for the average Joe just about any
+                    computer from a decade ago to date should be able to handle most basic tasks. I'm not a gamer or a
+                    video-ologist, so this suits my needs just fine.
+                </p>
+                <p>
+                    My phone is a <b>Sony Xperia 10 IV running SailfishOS</b>. For the time being, it appears to work on
+                    VoLTE in Australia, though given
+                    <a
+                        href="https://medium.com/@jamesdwho/australias-3g-shutdown-telcos-to-block-working-4g-5g-phones-2bf41e95de8a">recent
+                        events</a>, it
+                    may stop any day now. Sailfish is interesting, but I'd much prefer if it were fully OSS. That said,
+                    it's fun to tinker with, I believe it's safer
+                    (from a privacy point of view) than the duopoly of alternatives, and it's stable enough for use as a
+                    daily driver, so I'm sticking with it for now.
+                </p>
+                <p>
+                    I also run a number of Linux servers - a <b>Lenovo ThinkCentre M90n-1</b> webserver for Nextcloud
+                    and Jellyfin, a <b>Lenovo ThinkCentre
+                        M710q</b> mailserver running Postfix and Dovecot (largely as per Sam Hobbs' <a
+                        href="https://samhobbs.co.uk/2014/03/raspberry-pi-email-server">
+                        excellent guide</a>), and a <b>Raspberry Pi 3B</b> pi-hole & unbound server.
+                </p>
+                <p>
+                    Where-ever possible, I try to use privacy focused (to a reasonable extent, I am not a conspiracy
+                    theorist) and OSS/FOSS over commercial,
+                    closed alternatives. This is primarily because I prefer the philosophy of it. If something doesn't
+                    work in OSS, you can usually just check the logs and
+                    fix it yourself. Chances are there are other people with the same issue that will thank you very
+                    much and be on their merry way. <br>
+                    With closed-source, proprietary solutions, you typically get an error message along the lines of
+                    "Something went wrong". The reccomended solution is to
+                    try to re-install the software, operating system, maybe move house, try in a different
+                    country...<br>
+                </p>
+                <h3>Development</h3>
+                <p>
+                    Most of my serious development work is either no longer in use, highly specialised for a specific
+                    use-case, no longer my intellectual property, or was a website that is not relevant here
+                    and has since been handed off to someone else to maintain. These days I just make little utilities
+                    for personal use, or games and toys when I get some
+                    free time. For example, <b>Sailmines</b>, which is a minesweeper clone for SailfishOS, and was my
+                    first foray into QML.
+                    <a href="https://github.com/sharks-dev/harbour-sailmines">Read more.</a>
+                </p>
+                <img src="min.webp" class="centerImg" style="height:20em;">
+                <p>
+                    I am proficient (in alphabetical order) in ASP.NET, C++, C, CSS / HTML / Javascript, PHP, Python,
+                    and VB.NET.
+                </p>
+                <h3>This website</h3>
+                <p>
+                    The philosophy of this website was for it to be very lightweight and somewhat reminiscent of an
+                    earlier internet, while still looking half-decent.
+                    It uses no javascript, is perfectly readable in text-based browsers and accessible to screen
+                    readers, and avoids images in all page styling (though most pages
+                    do have highly compressed images on them for a bit of eye-candy). Currently the entire website
+                    weighs in at under 470KB.<br>
+                    For now, the site is hosted via Github Pages. I could host it myself over VDSL, but I'd prefer not
+                    to have the hassle. I'm not paying for a hosting provider.
+                    The only thing I'm not a fan of in regards to the Github solution is that I can never sneakily
+                    update something without a record of it!
+                </p>
+            </div>
+            <div id="content3" class="tab-content">
+                <h3>My Automotive hobby</h3>
+                <table cellpadding=0 cellspacing=0>
+                    <td>
+                        Pictured (well, drawn) is my Old Man's Leyland Moke, which is all but my daily drive, and
+                        serious fun. I caught the 'car' bug while restoring it
+                        during (but not due to the events of) 2020, though that said I was always an admirer of classic
+                        vehicles.
+                    </td>
+                    <td>
+                        <img style="margin-left: 10px;" src="car.webp">
+                    </td>
+                </table>
+                <p>
+                    My dream garage consists of this Moke, a Mini to go with it for when it's really cold or really wet,
+                    and a T-top Subaru Brumby ute (most likely with
+                    an EJ donk) for when I need a little more carrying or towing capacity than the Moke can (safely)
+                    manage.
+                </p>
+                <p>
+                    What I don't like are ludicrously big cars - especially big "pickup trucks" (why do people call them
+                    'utes'?). One of my favourite statistics is that
+                    the Datsun 1000 ute weighed 615kg and had a carrying capacity of 605kg, yet the modern Ford F-150
+                    weighs 2535kg and has a carrying capacity of only
+                    685kg. Remember, that's without including the weight of the driver! It does make you wonder what the
+                    point is. A lot of waste for an extra 85kgs...
+                </p>
+                <p>
+                    My favourite cars are from European and Japanese marques from the late 60s through to early 80s.
+                    Think the aformentioned Datsun utes, MK1 Golf GTI, the
+                    original Mini, etc.
+                    These cars are (relatively) easy to work on yourself, and small and light enough that their lack of
+                    power (or a fifth gear) doesn't really matter.
+                    Besides, what small engines lack in power they make up for in RPM!
+                </p>
+            </div>
+            <div id="content4" class="tab-content">
+                <h3>My Whitepaper</h3>
+                <p>
+                    I'm very proud of this, though I am by no means an academic.
+                </p>
+                <p>
+                    Thanks in no small part to my lecturer Ali Zare, I am first author on an article in <i>Energies</i>
+                    on the topic of emissions reduction (and
+                    performance improvement!) of diesel engines with hydrogen and water injection. <a
+                        href="https://www.mdpi.com/1996-1073/17/23/5838">Read more.</a>
+                </p>
+                <img src="pub.webp" style="height:15em" class="centerImg">
+                <p>
+                    If you're after the cliffnotes version, please have a look at my honours thesis poster, which
+                    highlights the key points without going into ridiculous
+                    detail: <a href="exp.webp">Poster</a> (15.7 KB)
+                </p>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
